@@ -39,6 +39,7 @@ public class BDDNotesSaver implements NotesSaver {
         }catch (Exception e){
             e.printStackTrace();
         }
+        return 1;
     }
 
     @Override
