@@ -30,6 +30,17 @@ public class BDDNotesSaver implements NotesSaver {
         return 0;
     }
 
+    public int LaFonctionDefectueuse(){
+        try (Connection con = DbConnex.connection()) {
+            String sql = "Select * from note";
+            Statement stmt = con.createStatement();
+            stmt.execute(sql);
+            return 1;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public List<Note> ChargerFichier() {
         List<Note> lesNotes= new ArrayList<>();
