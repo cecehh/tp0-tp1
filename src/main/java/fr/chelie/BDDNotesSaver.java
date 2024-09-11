@@ -3,6 +3,7 @@ package fr.chelie;
 import fr.chelie.interfaces.NotesSaver;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,9 +31,9 @@ public class BDDNotesSaver implements NotesSaver {
         return 0;
     }
 
-    public int LaFonctionDefectueuse(){
+    public int LaFonctionDefectueuse(String machin){
         try (Connection con = DbConnex.connection()) {
-            String sql = "Select * from note";
+            String sql = "INSERT INTO note VALUES (`"+machin+"`,`"+machin+"`,`"+ LocalDate.now()+"`,`"+LocalDate.now()+"`)";
             Statement stmt = con.createStatement();
             stmt.execute(sql);
             return 1;
